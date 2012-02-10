@@ -1,0 +1,47 @@
+<h2>IMU_Steering_Robot</h2>
+
+<p>A wheeled robot based on Arduino and the Pololu MinIMU-9</p>
+
+<h2>Summary</h2>
+
+<p>IMU_Steering_Bot is an Arduino program/sketch which uses the Pololu MinIMU-9 compass, gyro, and accelerometer to control two servos that will steer a wheeled robot to the requested direction or angle. It uses the example code from Pololu for the AHRS example to calculate estimated roll, pitch, and yaw, and then uses the yaw angle to determine which direction it is heading, and then rotates until the user requested direction or angle is obtained.</p>
+
+<p>Directions are communicated to the Arduino through the serial interface. For ease of steering, a Wixel or other wireless Serial communication method is recommended.</p>
+
+<p>The Arduino software is based on MinIMU-9-Arduino-AHRS by Pololu, which is based on sf9domahrs by Doug Weibel and Jose Julio, which is in turn based on ArduIMU v1.5 by Jordi Munoz, William Premerlani, Jose Julio, and Doug Weibel.</p>
+
+<h2>Software</h2>
+
+<p>The Arduino program uses Pololu’s MinIMU-9 as the IMU. You will have to install the L3G4200D and LSM303 Arduino libraries, which can be downloaded from GitHub. You will also need the Messenger and Streaming Arduino libraries. Follow the links below and instructions on each page to install the libraries.</p>
+
+<a href="https://github.com/pololu/LSM303">LSM303 library</a>
+<a href="https://github.com/pololu/L3G4200D">L3G4200D library</a>
+<a href="http://www.arduino.cc/playground/Code/Messenger">Messenger library</a>
+<a href="http://arduiniana.org/libraries/streaming/">Streaming library</a>
+
+<p>After you have set up the prerequisites, download the archive and extract it into your "sketchbook" folder.</p>
+
+<p>You will have to calibrate the IMU to get the best accuracy due to manufacturing variations. Follow the instructions in the L3G4200D library's "Calibrate" sketch and plug these into the main IMU_Steering_Bot sketch.</p>
+
+<p>Once you have connected the hardware (below), compile the sketch and upload it to your Arduino board. Open the serial monitor (Shift+Ctrl+M). Follow the directions output to the serial monitor to control the robot. By default, motion is disabled to prevent the robot from turning when you first connect it to power.</p>
+
+<h2>Hardware</h2>
+
+
+<p>The MinIMU-9 board can be purchased on Pololu’s website. The robot also uses two continuous rotation servo motors for steering.</p>
+
+<p>Make the following wiring connections from the Arduino:</p>
+<div>
+<pre>
+<code>
+Arduino Uno     |  Hardware
+--------------------------------------------------------------------
+5V             ->  MinIMU-9 VIN, Left Servo Power, Right Servo Power
+GND            ->  MinIMU-9 GND, Left Servo GND, Right Servo GND
+Digital Pin 9  ->  Left Servo Control
+Digital Pin 10 ->  Right Servo Control
+Analog Pin 4   ->  MinIMU-9 SDA
+Analog Pin 5   ->  MinIMU-9 SCL
+</code>
+</pre>
+</div>
