@@ -45,3 +45,7 @@ Analog Pin 5   ->  MinIMU-9 SCL
 </code>
 </pre>
 </div>
+
+<p>For convenience, the Fritzing sketch, as well as a custom part for the MinIMU-9 that I created, are included in the distribution. The wiring diagram including servos can be seen below.</p>
+
+<img src="https://github.com/dougbot/IMU_Steering_Bot/raw/master/IMU_Steering_Bot_Breadboard.png" />
